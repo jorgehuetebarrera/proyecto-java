@@ -1,3 +1,4 @@
+
 package vista;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
@@ -66,7 +67,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-        usuario("usuario","contra","001","medico");
+       
   
   
     
@@ -75,11 +76,7 @@ public class Login extends javax.swing.JFrame {
 
     private void recuerdameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuerdameActionPerformed
 
-       if (!recuerdame.isSelected()){usuario.setText("");
-       } else {
-          String usuarioGuardado =  usuario.getText();
-           usuario.setText("porno");
-        }
+   
     }//GEN-LAST:event_recuerdameActionPerformed
 
     private void contraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseniaActionPerformed
@@ -87,10 +84,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_contraseniaActionPerformed
 
     private void entrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrar2ActionPerformed
-        if(usuario.equals(usuario)){
-        Usuario us = new Usuario();
-        usuario.setVisible(true);
-        }else{
+    
     }//GEN-LAST:event_entrar2ActionPerformed
 
   
