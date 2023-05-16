@@ -4,8 +4,8 @@ package Main;
 import vista.Intro;
 import vista.Login;
 import vista.LoginView;
-import bbdd.conexion;
-import static bbdd.conexion.Conectar;
+import bbdd.Conexion;
+import static bbdd.Conexion.Conectar;
 
 
 public class Main {
@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         
        LoginView lv = new LoginView();
-       conexion bd = new conexion();
+       Conexion bd = new Conexion();
        lv.setLocationRelativeTo(null);
        lv.setVisible(true);
         

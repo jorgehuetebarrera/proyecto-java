@@ -1,14 +1,15 @@
-
 package vista;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
-import modelo.Usuario;
-import bbdd.conexion;
+import bbdd.Conexion;
+import modelo.Cuenta;
+import controlador.CuentaBD;
 
 public class Login extends javax.swing.JFrame {
 
+    private CuentaBD cuentaBD = new CuentaBD();
   
     public Login() {
         initComponents();
@@ -18,8 +19,8 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usuario = new javax.swing.JTextField();
-        contrasenia = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JPasswordField();
         entrar2 = new javax.swing.JButton();
         recuerdame = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
@@ -27,22 +28,22 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        usuario.setBorder(new javax.swing.border.MatteBorder(null));
-        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.setBorder(new javax.swing.border.MatteBorder(null));
+        txtUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 270, 50));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 270, 50));
 
-        contrasenia.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        contrasenia.addActionListener(new java.awt.event.ActionListener() {
+        txtContrasena.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contraseniaActionPerformed(evt);
+                txtContrasenaActionPerformed(evt);
             }
         });
-        getContentPane().add(contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 270, 50));
+        getContentPane().add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 270, 50));
 
         entrar2.setText("Entrar");
         entrar2.addActionListener(new java.awt.event.ActionListener() {
@@ -66,35 +67,40 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-       
-  
-  
-    
-  
-    }//GEN-LAST:event_usuarioActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void recuerdameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuerdameActionPerformed
 
-   
+     
     }//GEN-LAST:event_recuerdameActionPerformed
 
-    private void contraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseniaActionPerformed
+    private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
        
-    }//GEN-LAST:event_contraseniaActionPerformed
+    }//GEN-LAST:event_txtContrasenaActionPerformed
 
     private void entrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrar2ActionPerformed
-    
+        
+        String usuario = txtUsuario.getText();
+        String contrasena = new String(txtContrasena.getPassword());
+      
+        Cuenta cuenta = cuentaBD.getCuenta(usuario, contrasena);
+        
+        if(cuenta != null){
+            cuentaBD.iniciarSesion(cuenta);
+        }
+
     }//GEN-LAST:event_entrar2ActionPerformed
 
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField contrasenia;
     private javax.swing.JButton entrar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JCheckBox recuerdame;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JPasswordField txtContrasena;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
     private void usuario(String usuario, String contra, String string, String medico) {

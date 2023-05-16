@@ -1,8 +1,14 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
 package vista;
 
-
+/**
+ *
+ * @author 34685
+ */
 public class Intro extends javax.swing.JFrame {
 
     /** Creates new form intro */
